@@ -1,0 +1,5 @@
+langchain_community
+langchain
+python-dotenv
+streamlit
+textblob
