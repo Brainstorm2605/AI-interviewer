@@ -3,7 +3,7 @@ from langchain_community.llms.ollama import Ollama
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.messages import HumanMessage
 from textblob import TextBlob
-import time
+
 
 st.title("Interviewer")
 
@@ -62,7 +62,6 @@ def analyze():
             * Communication Skills: (Evaluate clarity, conciseness, and engagement)
             * Problem-Solving Ability: (Evaluate ability to analyze problems and propose solutions)
             * Critical Thinking: (Evaluate ability to think logically and objectively)
-            * Cultural Fit: (Evaluate alignment with company values and team dynamics)
             """
     return feedback_report        
     
@@ -123,7 +122,7 @@ else:
     if answer_button:
         chat_history.append(HumanMessage(content=answer))
         if len(chat_history) - 2 < int(st.session_state.num_ques): 
-            ans = create_prompt(chat_history,ans=answer)
+            ans = create_prompt(chat_history=chat_history,ans=answer)
             st.write(ans)
             chat_history.extend([[HumanMessage(content=answer), ans]])
         else:
